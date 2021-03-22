@@ -13,6 +13,8 @@ import {map} from "rxjs/operators";
     styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+  img:string;
+
     sliderImages = [
         '/assets/slide1',
         '/assets/slide2',
@@ -44,8 +46,12 @@ export class Tab1Page implements OnInit {
     }
 
     async ngOnInit() {
+      setTimeout(() => {
+        this.img ='https://myjungle.ec/wp-content/uploads/2020/12/IMG-20201207-WA0000.jpg';
+      }, 10);
+
         const loader = await this.loadingController.create({
-            message: 'Getting Products..',
+            message: 'Obteniendo Productos..',
             spinner: "bubbles",
             animated: true
         });
@@ -109,7 +115,7 @@ export class Tab1Page implements OnInit {
 
     loadingSpinner() {
         this.loadingController.create({
-            message: "Loading Details..",
+            message: "Cargando Detalles..",
             animated: true,
             spinner: "crescent",
             backdropDismiss: false,

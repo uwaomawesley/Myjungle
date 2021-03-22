@@ -12,8 +12,6 @@ export class WelcomePage implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    setTimeout(() => {
       this.img ='https://myjungle.ec/wp-content/uploads/2020/12/IMG-20201207-WA0000.jpg';
-    }, 10);
   }
 }

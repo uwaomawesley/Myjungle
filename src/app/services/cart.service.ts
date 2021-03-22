@@ -46,7 +46,7 @@ export class CartService {
 
     async addToCart(product: ProductModel) {
         const loader = await this.loadingController.create({
-            message: 'Adding To Cart..',
+            message: 'Añadiendo Al Carrito..',
             animated: true,
             spinner: "circles",
             backdropDismiss: false,
@@ -57,7 +57,7 @@ export class CartService {
             header: 'Cart Updated',
             buttons: [
                 {
-                    text: 'Continue',
+                    text: 'Continuar',
                     role: 'cancel',
                     cssClass: 'continue',
                     handler: () => {
@@ -65,7 +65,7 @@ export class CartService {
                     }
                 },
                 {
-                    text: "View Cart",
+                    text: "Ver Carrito",
                     cssClass: 'view-cart',
                     handler: () => {
                         this.router.navigateByUrl('/tabs/tab3').then();
@@ -73,7 +73,7 @@ export class CartService {
                 }
             ],
             animated: true,
-            message: "Product added to cart",
+            message: "Producto Agrergado Al Carrito",
             backdropDismiss: false,
             cssClass: "add-product"
         });
@@ -215,7 +215,7 @@ export class CartService {
         let headers = new HttpHeaders().set(WriteObject, '');
         headers = headers.set('Content-Type', 'application/json');
         const loader = await this.loadingController.create({
-           message: 'Placing order...',
+           message: 'Planificando Su orden...',
            animated: true,
            spinner: "circular"
         });

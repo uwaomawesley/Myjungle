@@ -177,30 +177,6 @@ export class AuthService {
         return this.currentAuthState;
     }
 
-    registerUser(name: string, email: string, password: string) {
-      const url_api = "http://myjungle.ec/wp-json/wc/v3/customers";
-      return this.http
-        .post<User>(
-          url_api,
-          {
-            name: name,
-            email: email,
-            password: password
-          },
-          { headers: this.headers }
-        )
-        .pipe(map(data => data));
-    }
-
-    setUser(user: User): void {
-      let user_string = JSON.stringify(user);
-      localStorage.setItem("currentUser", user_string);
-    }
-
-    setToken(token): void {
-      localStorage.setItem("accessToken", token);
-    }
-
 }
 
 
