@@ -19,7 +19,7 @@ export class CartViewComponent implements OnInit {
     this.cartService.updateQuantity(index, updatedInCartValue);
   }
   removeItemFromCart(prod: ProductModel):void{
-    this.productsInCart = this.cartService.removeFromCart( prod);
+    this.productsInCart = this.cartService.removeFromCart( prod );
 
   }
 

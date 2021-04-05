@@ -9,9 +9,9 @@
             </ion-button>-->
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title class="titulo" color="primary">
+        <!--<ion-title class="titulo" color="primary" style="font-size: 13px;">
           My Jungle
-        </ion-title>
+        </ion-title>-->
         <ion-buttons slot="end">
             <ion-button routerLink="/search">
                 <ion-icon name="search-outline" color="dark" slot="icon-only"></ion-icon>
@@ -34,7 +34,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" style="position: relative;">
-    <ion-toolbar style="position: fixed; top: 114px;">
+    <ion-toolbar style="position: fixed; top: 130px;">
         <ion-buttons slot="primary">
             <ion-button color="dark" expand="block" fill="clear" (click)="openModal()">
                 <ion-icon name="funnel-outline" slot="end"></ion-icon>
@@ -50,8 +50,7 @@
     <ion-grid style="margin: 50px 0 0 0;">
       <ion-row>
         <ion-col *ngFor="let prod of displayedList"(click)="loadingSpinner()"
-        detail
-        routerLink="/tabs/tab1/prod-detail/{{ prod.id }}" size="6">
+        detail routerLink="/tabs/tab1/prod-detail/{{ prod.id }}" size="6">
 
         <ion-thumbnail class="center" style="width:100px; height:auto;">
           <ion-img [src]="prod.images[0].src" alt="{{ prod.name }}"></ion-img>

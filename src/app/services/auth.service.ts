@@ -1,3 +1,4 @@
+import { JwtDto } from './../models/jw-dto';
 import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -8,7 +9,7 @@ import {AlertController, LoadingController} from "@ionic/angular";
 import {SkipInterceptor} from "./backend.interceptor";
 import {take} from "rxjs/operators";
 import {CustomerModel} from "../models/customerModel";
-import { User } from "../models/user";
+import { NewUser } from "../models/newUser";
 import { map } from "rxjs/operators";
 
 
@@ -33,12 +34,10 @@ export class AuthService {
                 private route: ActivatedRoute,
                 private alertController: AlertController,
                 private http: HttpClient) {
-        this.init();
     }
     headers: HttpHeaders = new HttpHeaders({
       "Content-Type": "application/json"
     })
-
 
 
     async login(username: string, password: string) {
@@ -110,7 +109,7 @@ export class AuthService {
                 });
         } else {
             await loader.dismiss().then();
-            this.router.navigateByUrl('/').then();
+            this.router.navigateByUrl('/tabs/tab1').then();
             return;
         }
 
@@ -123,12 +122,14 @@ export class AuthService {
     }
 
     logout() {
-        this.currentAuthState = false;
-        this.authState$.next(this.currentAuthState);
-        this.storage.remove('user').then();
-        this.storage.remove('data').then();
-        this.router.navigateByUrl('/').then();
+      this.currentAuthState = false;
+      this.authState$.next(this.currentAuthState);
+      this.storage.remove('data').then();
+      this.storage.remove('user').then();
+      this.router.navigateByUrl('/').then();
     }
+
+
 
     init() {
         this.storage.get('data').then(async (data: AuthResponse) => {
@@ -175,6 +176,11 @@ export class AuthService {
 
     getCurrentAuthState(): boolean {
         return this.currentAuthState;
+    }
+
+    registro(newUser: NewUser ): Observable<any> {
+      return this.httpClient.post<any>(this.serverUrl + '/customers', newUser)
+
     }
 
 }

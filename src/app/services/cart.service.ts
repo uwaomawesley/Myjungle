@@ -54,7 +54,7 @@ export class CartService {
         });
 
         const alert = await this.alertController.create({
-            header: 'Cart Updated',
+            header: 'Carrito Actualizado',
             buttons: [
                 {
                     text: 'Continuar',
@@ -79,7 +79,7 @@ export class CartService {
         });
 
         const toast = await this.toastController.create({
-            message: 'Only 5 allowed in cart',
+            message: 'Solo puede añadir 5 productos',
             header: 'Max Quantity Reached',
             duration: 2000,
             position: "bottom",

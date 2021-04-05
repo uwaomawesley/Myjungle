@@ -6,6 +6,7 @@ import {SortModalComponent} from "../Components/sort-modal/sort-modal.component"
 import {CategoryModel} from "../models/categoryModel";
 import {CartService} from "../services/cart.service";
 import {map} from "rxjs/operators";
+import {AuthService} from "../services/auth.service";
 
 @Component({
     selector: 'app-tab1',
@@ -41,7 +42,8 @@ export class Tab1Page implements OnInit {
                 private menuController: MenuController,
                 private toastController: ToastController,
                 private modalController: ModalController,
-                private cartService: CartService) {
+                private cartService: CartService,
+                private authService: AuthService) {
         this.loadMoreData(null).then();
     }
 
@@ -259,4 +261,7 @@ export class Tab1Page implements OnInit {
             this.displayedList = [...this.listArrayOfProducts];
         }
     }
+    logout() {
+      this.authService.logout();
+   }
 }
