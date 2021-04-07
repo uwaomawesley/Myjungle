@@ -1,3 +1,4 @@
+import { CustomerModel } from './../models/customerModel';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  customerModel : CustomerModel;
+  private nombres = this.Uname;
 
-  constructor() {}
+
+
+  constructor() {
+  }
+  Uname(name : string) {
+    this.customerModel.username = name;
+  }
 
 }

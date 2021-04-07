@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Agrupar de forma:</ion-title>
+    <ion-title>Ordenar por:</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close"></ion-icon>
@@ -14,22 +14,22 @@
   <ion-list>
     <ion-radio-group (ionChange)="radioChanged($event)">
       <ion-item>
-        <ion-label>Ascendente (nombre)</ion-label>
+        <ion-label>NOMBRE (A-Z)</ion-label>
         <ion-radio value="title-asc"></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>Descendente </ion-label>
+        <ion-label>NOMBRE (Z-A) </ion-label>
         <ion-radio value="title-desc"></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>De Menor a Mayor (Precio)</ion-label>
+        <ion-label>PRECIO (mayor a menor)</ion-label>
         <ion-radio value="price-asc"></ion-radio>
       </ion-item>
 
       <ion-item>
-        <ion-label>De Mayor a Menor</ion-label>
+        <ion-label>PRECIO (menor a mayor)</ion-label>
         <ion-radio value="price-desc"></ion-radio>
       </ion-item>
 

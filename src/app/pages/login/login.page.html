@@ -3,37 +3,38 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/register"></ion-back-button>
     </ion-buttons>
-    <ion-title>Login</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
     <div class="card card-container">
       <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+      <!--<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /> -->
+      <ion-icon name="person-outline" id="profile-img" class="profile-img-card" color="primary"></ion-icon>
       <p id="profile-name" class="profile-name-card"></p>
       <h3 class="ion-text-center">Ingresa</h3>
       <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <span id="reauth-email" class="reauth-email"></span>
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label position="floating">Email o Nombre de Usuario</ion-label>
           <ion-input type="text" required name="email" ngModel autofocus></ion-input>
         </ion-item>
         <br>
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label position="floating">Contraseña</ion-label>
           <ion-input type="password" required name="password" ngModel></ion-input>
         </ion-item>
         <br>
         <div id="remember" class="checkbox ion-text-center">
-          <label position="floating">
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+          <!--<label position="floating">
+            <input type="checkbox" value="remember-me"> Recordar
+          </label> -->
         </div>
         <br>
         <div class="ion-padding">
           <ion-button color="primary" expand="block" class="ion-no-margin"
                   type="submit"
-                  [disabled]="loginForm.invalid || loginForm.pending">Sign in</ion-button>
+                  [disabled]="loginForm.invalid || loginForm.pending">Iniciar Sesion</ion-button>
               </div>
       </form><!-- /form -->
 

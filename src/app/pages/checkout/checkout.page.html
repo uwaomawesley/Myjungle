@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-left"></ion-title>
+    <ion-title class="ion-text-left">Chekout</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,7 +20,7 @@
               <ion-label (click)="toggleUp('personal')"
                          class="d-flex justify-content-between align-items-center"
                          data-target="#personalDetails" data-toggle="collapse">
-                <h2 class="ion-color-tertiary" style="color: #e5e5e5;">Detalles Del Cliente</h2>
+                <h2 class="ion-color-tertiary" style="color: #df901a;">DETALLES DEL CLIENTE</h2>
                 <ion-icon (click)="toggleUp('personal')" *ngIf="!isPersonalUp"
                           class="justify-self-start"
                           data-target="#personalDetails" data-toggle="collapse"
@@ -64,7 +64,7 @@
               <ion-label (click)="toggleUp('billing')"
                          class="d-flex justify-content-between align-items-center"
                          data-target="#billingDetails" data-toggle="collapse">
-                <h2 class="ion-color-tertiary" style="color: #e5e5e5;">Direccion de Facturacion </h2>
+                <h2 class="ion-color-tertiary" style="color: #e5e5e5;">Direccion de Facturacion</h2>
                 <ion-icon (click)="toggleUp('billing')" *ngIf="!isBillingUp" class="justify-self-start"
                           data-target="#billingDetails" data-toggle="collapse"
                           name="chevron-down-outline"
@@ -78,24 +78,24 @@
 
 
             <ion-item class="collapse" id="billingDetails">
-              <ion-label position="stacked">calle Principal</ion-label>
+              <ion-label position="stacked">CALLE PRINCIPAL</ion-label>
               <ion-input #b_address_line_1="ngModel" name="b_address_line_1" ngModel required
                          type="text"></ion-input>
 
-              <ion-label position="stacked">Calle segundaria</ion-label>
+              <ion-label position="stacked">CALLE SECUNDARIA</ion-label>
               <ion-input #b_address_line_2="ngModel" name="b_address_line_2" ngModel
                          type="text"></ion-input>
 
-              <ion-label position="stacked">Ciudad</ion-label>
+              <ion-label position="stacked">CIUDAD</ion-label>
               <ion-input #b_city="ngModel" name="b_city" ngModel required
                          type="text"></ion-input>
 
-              <ion-label position="stacked">Provincia</ion-label>
+              <ion-label position="stacked">PROVINCIA</ion-label>
               <ion-input #b_state="ngModel" name="b_state" ngModel required
                          type="text"></ion-input>
 
 
-              <ion-label position="stacked">Codigo Postal</ion-label>
+              <ion-label position="stacked">CODIGO POSTAL</ion-label>
               <ion-input #b_postcode="ngModel" name="b_postcode" ngModel required
                          type="text"></ion-input>
             </ion-item>
@@ -138,21 +138,21 @@
 
 
             <ion-item class="collapse" id="shippingDetails">
-              <ion-label position="stacked">calle Principal</ion-label>
+              <ion-label position="stacked">CALLE PRINCIPAL</ion-label>
               <ion-input #s_address_line_1="ngModel" name="s_address_line_1" ngModel required
                          type="text"></ion-input>
-              <ion-label position="stacked">calle Secundaria</ion-label>
+              <ion-label position="stacked">CALLE SECUNDARIA</ion-label>
               <ion-input #s_address_line_2="ngModel" name="s_address_line_2" ngModel
                          type="text"></ion-input>
-              <ion-label position="stacked">Ciudad</ion-label>
+              <ion-label position="stacked">CIUDAD</ion-label>
               <ion-input #s_city="ngModel" name="s_city" ngModel required
                          type="text"></ion-input>
 
-              <ion-label position="stacked">Provincia</ion-label>
+              <ion-label position="stacked">PROVINCIA</ion-label>
               <ion-input #b_state="ngModel" name="b_state" ngModel required
                           type="text"></ion-input>
 
-              <ion-label position="stacked">Codigo Postal</ion-label>
+              <ion-label position="stacked">CODIGO POSTAL</ion-label>
               <ion-input #s_postcode="ngModel" name="s_postcode" ngModel required
                          type="text"></ion-input>
             </ion-item>
