@@ -126,10 +126,11 @@ export class CheckoutPage implements OnInit {
                     address_2: data.b_address_line_2,
                     city: data.b_city,
                     state: data.b_state,
-                    country: 'IN',
+                    country: 'Ec',
                     postcode: data.b_postcode,
                     first_name: data.first_name,
                     last_name: data.last_name,
+                    cedula: data.cedula,
                     email: data.email,
                     phone: data.phone,
                 },
@@ -138,10 +139,11 @@ export class CheckoutPage implements OnInit {
                     address_2: data.b_address_line_2,
                     city: data.b_city,
                     state: data.b_state,
-                    country: 'IN',
+                    country: 'Ec',
                     postcode: data.b_postcode,
                     first_name: data.first_name,
-                    last_name: data.last_name
+                    last_name: data.last_name,
+                    cedula: data.cedula,
                 },
                 line_items: lineItems
             };
@@ -156,10 +158,11 @@ export class CheckoutPage implements OnInit {
                     address_2: data.b_address_line_2,
                     city: data.b_city,
                     state: data.b_state,
-                    country: 'IN',
+                    country: 'Ec',
                     postcode: data.b_postcode,
                     first_name: data.first_name,
                     last_name: data.last_name,
+                    cedula: data.cedula,
                     email: data.email,
                     phone: data.phone,
                 },
@@ -168,10 +171,11 @@ export class CheckoutPage implements OnInit {
                     address_2: data.s_address_line_2,
                     city: data.s_city,
                     state: data.s_state,
-                    country: 'IN',
+                    country: 'Ec',
                     postcode: data.s_postcode,
                     first_name: data.first_name,
-                    last_name: data.last_name
+                    last_name: data.last_name,
+                    cedula: data.cedula,
                 },
                 line_items: lineItems
             };

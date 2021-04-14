@@ -49,10 +49,13 @@ export class RegisterPage implements OnInit {
 
   async presentToast(msj: string) {
     const toast = await this.toastController.create({
-      message: msj,
-      duration: 2000,
-      position: 'middle'
-    });
+      message: 'Usuario Creado Con exito',
+            duration: 1500,
+            position: "middle",
+            animated: true,
+            color: "primary",
+        });
+
     toast.present();
   }
 

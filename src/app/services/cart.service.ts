@@ -16,7 +16,7 @@ import {WriteObject} from "./backend.interceptor";
 export class CartService {
     // Local Variables
     private serverUrl = environment.backend_api_url;
-    private cartDataArray: CartModel = {
+    public cartDataArray: CartModel = {
         count: 0,
         productData: []
     }
@@ -186,7 +186,7 @@ export class CartService {
         this.totalAmount$.next(this.totalAmount);
     }
 
-    private emptyCart() {
+    public emptyCart() {
         this.cartDataArray = {
             count: 0,
             productData: []

@@ -8,6 +8,7 @@ import {CartService} from "../services/cart.service";
 import {map} from "rxjs/operators";
 import {AuthService} from "../services/auth.service";
 
+
 @Component({
     selector: 'app-tab1',
     templateUrl: 'tab1.page.html',
@@ -46,8 +47,12 @@ export class Tab1Page implements OnInit {
                 private authService: AuthService) {
         this.loadMoreData(null).then();
     }
+    private vacio(){
+      this.cartService.emptyCart();
+    }
 
     async ngOnInit() {
+      this.vacio();
       setTimeout(() => {
         this.img ='https://myjungle.ec/wp-content/uploads/2020/12/IMG-20201207-WA0000.jpg';
       }, 10);

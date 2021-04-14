@@ -1,5 +1,6 @@
-import { JwtDto } from './../models/jw-dto';
-import {Injectable} from '@angular/core';
+import { CartModel } from './../models/cartModel';
+import { CartService } from './cart.service';
+import {Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
@@ -7,10 +8,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Storage} from "@ionic/storage";
 import {AlertController, LoadingController} from "@ionic/angular";
 import {SkipInterceptor} from "./backend.interceptor";
-import {take} from "rxjs/operators";
+import {take } from "rxjs/operators";
 import {CustomerModel} from "../models/customerModel";
 import { NewUser } from "../models/newUser";
-import { map } from "rxjs/operators";
 
 
 
@@ -21,11 +21,13 @@ export class AuthService {
     private WP_AUTH_URL = environment.auth_url;
     private WP_JWT_VERIFY_URL = environment.token_verify_url;
     private serverUrl = environment.backend_api_url;
-    private currentAuthState = false;
+    public currentAuthState = false;
     returnUrl: string;
 
     authState$ = new BehaviorSubject<boolean>(false);
-
+    private vacio(){
+      this.cartService.emptyCart();
+    }
 
     constructor(private httpClient: HttpClient,
                 private router: Router,
@@ -33,11 +35,16 @@ export class AuthService {
                 private loadingController: LoadingController,
                 private route: ActivatedRoute,
                 private alertController: AlertController,
-                private http: HttpClient) {
+                private http: HttpClient,
+                private cartService: CartService
+
+              ) {
     }
     headers: HttpHeaders = new HttpHeaders({
       "Content-Type": "application/json"
     })
+
+
 
 
     async login(username: string, password: string) {
@@ -47,7 +54,7 @@ export class AuthService {
         const loader = await this.loadingController.create({
             animated: true,
             backdropDismiss: true,
-            message: "Authenticating Account",
+            message: "Verificando Cuenta",
             spinner: "crescent",
             id: "auth"
         });
@@ -80,14 +87,14 @@ export class AuthService {
                     if (err instanceof HttpErrorResponse) {
                         if (err.status === 403) {
                             const alert = await this.alertController.create({
-                                message: 'Bad Username Or Password',
+                                message: 'Usuario o Contraseña Incorrectos',
                                 buttons: [
                                     {
                                         role: 'cancel',
                                         text: 'Ok'
                                     }
                                 ],
-                                header: 'Authentication Failed'
+                                header: 'Verificacion fallida'
                             });
 
                             await alert.present().then();
@@ -100,7 +107,7 @@ export class AuthService {
                                         text: 'Ok'
                                     }
                                 ],
-                                header: 'Authentication Failed'
+                                header: 'Verificacion fallida'
                             });
 
                             await alert.present().then();
@@ -120,15 +127,14 @@ export class AuthService {
             take(1)
         );
     }
-
     logout() {
       this.currentAuthState = false;
       this.authState$.next(this.currentAuthState);
-      this.storage.remove('data').then();
       this.storage.remove('user').then();
+      this.storage.remove('data').then();
+      this.vacio();
       this.router.navigateByUrl('/').then();
     }
-
 
 
     init() {

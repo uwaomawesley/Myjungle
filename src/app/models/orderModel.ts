@@ -5,6 +5,7 @@ export interface OrderModel{
    billing: {
      first_name: string;
      last_name: string;
+     cedula: string;
      address_1: string;
      address_2: string;
      city: string;
@@ -17,6 +18,7 @@ export interface OrderModel{
    shipping: {
     first_name: string;
     last_name: string;
+    cedula: string;
     address_1: string;
     address_2: string;
     city: string;
